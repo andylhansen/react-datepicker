@@ -43,6 +43,8 @@ var DateInput = React.createClass({
       this.setState({
         value: this.safeDateFormat(newProps)
       })
+    } else if (this.props.minDate !== newProps.minDate && newProps.date && newProps.date.isBefore(newProps.minDate)) {
+      this.props.onChangeDate(newProps.minDate);
     }
   },
 
